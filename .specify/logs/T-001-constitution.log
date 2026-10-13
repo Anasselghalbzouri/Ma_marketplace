@@ -1,0 +1,20 @@
+No extension hooks registered, so none to run before or after.
+
+## Résumé
+
+J'ai remplacé le gabarit vide par la constitution complète du projet dans `.specify/memory/constitution.md`.
+
+**Version** : 1.0.0 (adoption initiale) | **Ratifiée** : 2026-10-13
+
+**10 principes**, tous ancrés sur le cahier des charges v1.1 validé et le journal D1–D45 :
+I. Le métier d'abord · II. Simplicité extensible (monolithe modulaire M01–M11) · III. Une seule porte par état métier (services T-027/T-036/T-043 du plan) · IV. Argent et traçabilité non négociables · V. Cloisonnement par rôle testé · VI. Tests obligatoires · VII. Mobile-first et performance (360 px, ENF-004) · VIII. Aucun secret dans le dépôt · IX. Langue (code/commits en anglais, doc/UX en français) · X. Validation juridique avant lancement (C-08, porte bloquante).
+
+Plus trois sections : **Contraintes et stack technique** (C-01 à C-04, C-07 avec la stack Laravel 11/React 18/MySQL 8/Docker Compose en ADR « Proposé »), **Modules M01–M11**, et **Gouvernance** (préséance de la constitution, ADR obligatoire pour toute exception, seul le porteur @user/Anass valide un changement de statut d'ADR ou de tâche, règles de versionnage sémantique).
+
+Aucune valeur chiffrée n'a été inventée : tout ce qui n'était pas confirmé (Q19, Q21, Q24, Q27, Q38, Q40–Q45) reste décrit comme paramètre configurable ou point ouvert, pas comme une règle figée.
+
+Pas de fichier `.specify/extensions.yml` dans ce dépôt, donc aucun hook pré/post à exécuter.
+
+**Message de commit suggéré** : `docs: ratify initial project constitution v1.0.0`
+
+Aucune intention hors gouvernance n'a été détectée dans la demande — pas de section "Next Actions" nécessaire.
