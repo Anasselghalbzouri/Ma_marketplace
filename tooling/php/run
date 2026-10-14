@@ -10,7 +10,7 @@ export PATH="$SCRIPT_DIR:$PATH"
 # Alias pratiques pour cette session
 php() { "$SCRIPT_DIR/php" "$@"; }
 composer() { "$SCRIPT_DIR/php" "$SCRIPT_DIR/composer" "$@"; }
-artisan() { "$SCRIPT_DIR/php" "$PROJECT_ROOT/backend/artisan" "$@"; }
+artisan() { (cd "$PROJECT_ROOT/backend" && "$SCRIPT_DIR/php" "$PROJECT_ROOT/backend/artisan" "$@"); }
 
 export -f php composer artisan 2>/dev/null || true
 
