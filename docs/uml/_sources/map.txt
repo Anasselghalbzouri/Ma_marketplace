@@ -1,0 +1,61 @@
+F001 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, UC-DIAG-01-achat
+F002 CLASS-01-comptes-catalogue-commandes, UC-DIAG-02-vente
+F003 CLASS-01-comptes-catalogue-commandes, UC-DIAG-02-vente
+F004 CLASS-01-comptes-catalogue-commandes, UC-DIAG-01-achat
+F005 CLASS-01-comptes-catalogue-commandes, UC-DIAG-01-achat
+F006 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, UC-DIAG-01-achat
+F007 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, STATE-001-commande, UC-DIAG-01-achat
+F008 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, STATE-001-commande, UC-DIAG-01-achat
+F009 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, SEQ-002-collecte-livraison-encaissement, STATE-001-commande, STATE-002-sous-commande, UC-DIAG-02-vente
+F010 ACTIVITY-001-cycle-commande, ACTIVITY-003-retenue-reversement, CLASS-01-comptes-catalogue-commandes, CLASS-02-retours-argent, SEQ-002-collecte-livraison-encaissement, STATE-001-commande, STATE-002-sous-commande, STATE-004-montant-vendeur, UC-DIAG-03-exploitation
+F011 ACTIVITY-002-processus-retour, ACTIVITY-003-retenue-reversement, CLASS-02-retours-argent, SEQ-002-collecte-livraison-encaissement, SEQ-003-retour-litige-remboursement, STATE-004-montant-vendeur, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+F012 CLASS-01-comptes-catalogue-commandes, UC-DIAG-01-achat
+F013 CLASS-01-comptes-catalogue-commandes, STATE-002-sous-commande, UC-DIAG-03-exploitation
+F014 ACTIVITY-001-cycle-commande, ACTIVITY-003-retenue-reversement, SEQ-001-commande-multi-vendeurs, SEQ-002-collecte-livraison-encaissement, SEQ-003-retour-litige-remboursement, STATE-001-commande, STATE-002-sous-commande, UC-DIAG-01-achat
+F022 ACTIVITY-002-processus-retour, CLASS-02-retours-argent, SEQ-003-retour-litige-remboursement, STATE-003-retour, UC-DIAG-01-achat, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-001 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, UC-DIAG-01-achat, UC-DIAG-03-exploitation
+RG-002 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-002-collecte-livraison-encaissement, UC-DIAG-01-achat
+RG-003 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, STATE-001-commande, STATE-002-sous-commande, UC-DIAG-01-achat, UC-DIAG-02-vente
+RG-004 UC-DIAG-02-vente
+RG-005 ACTIVITY-003-retenue-reversement, STATE-004-montant-vendeur, UC-DIAG-02-vente
+RG-006 CLASS-01-comptes-catalogue-commandes, UC-DIAG-01-achat, UC-DIAG-02-vente
+RG-007 CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, UC-DIAG-01-achat, UC-DIAG-02-vente
+RG-008 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, SEQ-002-collecte-livraison-encaissement, STATE-001-commande, STATE-002-sous-commande, UC-DIAG-01-achat, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-009 CLASS-01-comptes-catalogue-commandes, SEQ-002-collecte-livraison-encaissement, UC-DIAG-01-achat
+RG-010 ACTIVITY-001-cycle-commande, STATE-001-commande, STATE-002-sous-commande, UC-DIAG-01-achat
+RG-011 CLASS-01-comptes-catalogue-commandes, UC-DIAG-01-achat
+RG-011b ACTIVITY-001-cycle-commande, SEQ-001-commande-multi-vendeurs, STATE-001-commande, STATE-002-sous-commande, UC-DIAG-02-vente
+RG-012 ACTIVITY-003-retenue-reversement, CLASS-02-retours-argent, STATE-004-montant-vendeur, UC-DIAG-02-vente
+RG-013 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-002-collecte-livraison-encaissement, STATE-001-commande, UC-DIAG-03-exploitation
+RG-014 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, UC-DIAG-01-achat
+RG-015 CLASS-01-comptes-catalogue-commandes, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-016 UC-DIAG-02-vente
+RG-017 ACTIVITY-001-cycle-commande, ACTIVITY-002-processus-retour, CLASS-01-comptes-catalogue-commandes, CLASS-02-retours-argent, SEQ-001-commande-multi-vendeurs, SEQ-002-collecte-livraison-encaissement, SEQ-003-retour-litige-remboursement, STATE-001-commande, STATE-003-retour, UC-DIAG-01-achat, UC-DIAG-02-vente
+RG-018 ACTIVITY-003-retenue-reversement, CLASS-01-comptes-catalogue-commandes, CLASS-02-retours-argent, STATE-004-montant-vendeur, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-019 ACTIVITY-002-processus-retour, CLASS-01-comptes-catalogue-commandes, CLASS-02-retours-argent, SEQ-003-retour-litige-remboursement, STATE-003-retour, UC-DIAG-01-achat, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-020 CLASS-02-retours-argent, SEQ-002-collecte-livraison-encaissement, UC-DIAG-03-exploitation
+RG-021 ACTIVITY-002-processus-retour, ACTIVITY-003-retenue-reversement, CLASS-02-retours-argent, SEQ-003-retour-litige-remboursement, STATE-003-retour, STATE-004-montant-vendeur, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-022 ACTIVITY-002-processus-retour, CLASS-02-retours-argent, SEQ-003-retour-litige-remboursement, STATE-003-retour, UC-DIAG-01-achat, UC-DIAG-03-exploitation
+RG-023 CLASS-01-comptes-catalogue-commandes, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-024 ACTIVITY-001-cycle-commande, ACTIVITY-003-retenue-reversement, CLASS-02-retours-argent, SEQ-002-collecte-livraison-encaissement, STATE-004-montant-vendeur, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-025 ACTIVITY-002-processus-retour, ACTIVITY-003-retenue-reversement, CLASS-02-retours-argent, SEQ-003-retour-litige-remboursement, STATE-003-retour, STATE-004-montant-vendeur, UC-DIAG-01-achat, UC-DIAG-03-exploitation
+RG-026 ACTIVITY-001-cycle-commande, SEQ-001-commande-multi-vendeurs, UC-DIAG-01-achat
+RG-027 ACTIVITY-002-processus-retour, CLASS-02-retours-argent, SEQ-003-retour-litige-remboursement, STATE-003-retour, UC-DIAG-02-vente, UC-DIAG-03-exploitation
+RG-028 ACTIVITY-001-cycle-commande, CLASS-01-comptes-catalogue-commandes, SEQ-001-commande-multi-vendeurs, UC-DIAG-01-achat
+RG-029 ACTIVITY-001-cycle-commande, ACTIVITY-002-processus-retour, SEQ-002-collecte-livraison-encaissement, SEQ-003-retour-litige-remboursement, STATE-001-commande, STATE-002-sous-commande, STATE-003-retour, UC-DIAG-03-exploitation
+RG-030 ACTIVITY-002-processus-retour, CLASS-02-retours-argent, SEQ-003-retour-litige-remboursement, STATE-003-retour, UC-DIAG-01-achat
+US-001 UC-DIAG-02-vente
+US-002 UC-DIAG-02-vente
+US-003 UC-DIAG-01-achat
+US-004 UC-DIAG-01-achat
+US-005 UC-DIAG-01-achat
+US-006 UC-DIAG-01-achat
+US-007 UC-DIAG-02-vente
+US-008 ACTIVITY-001-cycle-commande, UC-DIAG-03-exploitation
+US-009 ACTIVITY-003-retenue-reversement, UC-DIAG-02-vente
+US-010 UC-DIAG-01-achat
+US-011 UC-DIAG-03-exploitation
+US-012 UC-DIAG-01-achat
+US-013 UC-DIAG-01-achat
+US-014 ACTIVITY-002-processus-retour, CLASS-02-retours-argent, UC-DIAG-02-vente
+US-015 ACTIVITY-002-processus-retour, CLASS-02-retours-argent, UC-DIAG-03-exploitation

@@ -1,0 +1,1786 @@
+{
+ "files": {
+  "UC-DIAG-01-achat": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 34,
+   "statut": {
+    "E": 8,
+    "I": 6,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F001-1",
+    "CA-F001-2",
+    "CA-F001-3",
+    "CA-F004-1",
+    "CA-F004-2",
+    "CA-F005-1",
+    "CA-F008-1",
+    "CA-F008-2",
+    "CA-F012-1",
+    "CA-F012-2",
+    "D37",
+    "D39",
+    "D40",
+    "D41",
+    "D44",
+    "F001",
+    "F004",
+    "F005",
+    "F006",
+    "F007",
+    "F008",
+    "F012",
+    "F014",
+    "F022",
+    "RG-001",
+    "RG-002",
+    "RG-003",
+    "RG-006",
+    "RG-007",
+    "RG-008",
+    "RG-009",
+    "RG-010",
+    "RG-011",
+    "RG-014",
+    "RG-017",
+    "RG-019",
+    "RG-022",
+    "RG-025",
+    "RG-026",
+    "RG-028",
+    "RG-030",
+    "US-003",
+    "US-004",
+    "US-005",
+    "US-006",
+    "US-010",
+    "US-012",
+    "US-013"
+   ]
+  },
+  "UC-DIAG-02-vente": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 21,
+   "statut": {
+    "E": 6,
+    "I": 0,
+    "WARN": 2
+   },
+   "ids": [
+    "CA-F002-1",
+    "CA-F002-2",
+    "CA-F002-3",
+    "CA-F003-1",
+    "CA-F003-2",
+    "CA-F003-3",
+    "CA-F009-1",
+    "D22",
+    "D33",
+    "D40",
+    "D43",
+    "ENF-007",
+    "F002",
+    "F003",
+    "F009",
+    "F011",
+    "F022",
+    "RG-003",
+    "RG-004",
+    "RG-005",
+    "RG-006",
+    "RG-007",
+    "RG-008",
+    "RG-011b",
+    "RG-012",
+    "RG-015",
+    "RG-016",
+    "RG-017",
+    "RG-018",
+    "RG-019",
+    "RG-021",
+    "RG-023",
+    "RG-024",
+    "RG-027",
+    "US-001",
+    "US-002",
+    "US-007",
+    "US-009",
+    "US-014"
+   ]
+  },
+  "UC-DIAG-03-exploitation": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 31,
+   "statut": {
+    "E": 9,
+    "I": 2,
+    "WARN": 2
+   },
+   "ids": [
+    "CA-F010-1",
+    "CA-F010-2",
+    "CA-F010-3",
+    "CA-F010-4",
+    "CA-F011-2",
+    "CA-F011-5",
+    "CA-F013-1",
+    "CA-F013-2",
+    "CA-F013-3",
+    "CA-F022-5",
+    "CA-F022-6",
+    "CA-F022-7",
+    "D19",
+    "D31",
+    "D37",
+    "D38",
+    "D40",
+    "D44",
+    "ENF-007",
+    "ENF-008",
+    "ENF-010",
+    "ENF-012",
+    "F010",
+    "F011",
+    "F013",
+    "F022",
+    "RG-001",
+    "RG-008",
+    "RG-013",
+    "RG-015",
+    "RG-018",
+    "RG-019",
+    "RG-020",
+    "RG-021",
+    "RG-022",
+    "RG-023",
+    "RG-024",
+    "RG-025",
+    "RG-027",
+    "RG-029",
+    "US-008",
+    "US-011",
+    "US-015"
+   ]
+  },
+  "CLASS-01-comptes-catalogue-commandes": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 56,
+   "statut": {
+    "E": 26,
+    "I": 5,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F001-3",
+    "CA-F002-2",
+    "CA-F006-1",
+    "CA-F006-2",
+    "CA-F009-1",
+    "CA-F010-1",
+    "CA-F010-3",
+    "CA-F013-3",
+    "D21",
+    "D22",
+    "D33",
+    "D37",
+    "D40",
+    "D41",
+    "D44",
+    "F001",
+    "F002",
+    "F003",
+    "F004",
+    "F005",
+    "F006",
+    "F007",
+    "F008",
+    "F009",
+    "F010",
+    "F012",
+    "F013",
+    "RG-001",
+    "RG-002",
+    "RG-003",
+    "RG-006",
+    "RG-007",
+    "RG-008",
+    "RG-009",
+    "RG-011",
+    "RG-013",
+    "RG-014",
+    "RG-015",
+    "RG-017",
+    "RG-018",
+    "RG-019",
+    "RG-023",
+    "RG-028"
+   ]
+  },
+  "CLASS-02-retours-argent": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 64,
+   "statut": {
+    "E": 27,
+    "I": 7,
+    "WARN": 2
+   },
+   "ids": [
+    "CA-F010-1",
+    "CA-F010-2",
+    "CA-F011-1",
+    "CA-F011-2",
+    "CA-F011-3",
+    "CA-F011-4",
+    "CA-F011-5",
+    "CA-F022-1",
+    "CA-F022-4",
+    "CA-F022-5",
+    "CA-F022-6",
+    "CA-F022-7",
+    "CA-F022-9",
+    "D19",
+    "D21",
+    "D29",
+    "D30",
+    "D31",
+    "D32",
+    "D34",
+    "D38",
+    "D39",
+    "D42",
+    "D43",
+    "ENF-008",
+    "ENF-012",
+    "F010",
+    "F011",
+    "F022",
+    "RG-012",
+    "RG-017",
+    "RG-018",
+    "RG-019",
+    "RG-020",
+    "RG-021",
+    "RG-022",
+    "RG-024",
+    "RG-025",
+    "RG-027",
+    "RG-030",
+    "US-014",
+    "US-015"
+   ]
+  },
+  "SEQ-001-commande-multi-vendeurs": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 4,
+    "findings": [
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "cli,n01",
+      "message": "vertices 'cli' and 'n01' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     },
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "pf,n01",
+      "message": "vertices 'pf' and 'n01' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     },
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "pf,n15",
+      "message": "vertices 'pf' and 'n15' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     },
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "va,n15",
+      "message": "vertices 'va' and 'n15' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     }
+    ]
+   },
+   "elements": 33,
+   "statut": {
+    "E": 0,
+    "I": 0,
+    "WARN": 0
+   },
+   "ids": [
+    "CA-F007-1",
+    "CA-F007-2",
+    "CA-F009-2",
+    "CA-F009-3",
+    "CA-F014-1",
+    "CA-F014-2",
+    "D22",
+    "D38",
+    "D41",
+    "ENF-009",
+    "F006",
+    "F007",
+    "F009",
+    "F014",
+    "RG-001",
+    "RG-003",
+    "RG-007",
+    "RG-008",
+    "RG-011b",
+    "RG-017",
+    "RG-026",
+    "RG-028"
+   ]
+  },
+  "SEQ-002-collecte-livraison-encaissement": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 2,
+    "findings": [
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "pf,n19",
+      "message": "vertices 'pf' and 'n19' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     },
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "sdl,n19",
+      "message": "vertices 'sdl' and 'n19' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     }
+    ]
+   },
+   "elements": 38,
+   "statut": {
+    "E": 0,
+    "I": 0,
+    "WARN": 0
+   },
+   "ids": [
+    "CA-F009-2",
+    "CA-F010-1",
+    "CA-F010-2",
+    "CA-F010-3",
+    "CA-F010-4",
+    "D19",
+    "D38",
+    "D44",
+    "ENF-008",
+    "F009",
+    "F010",
+    "F011",
+    "F014",
+    "RG-002",
+    "RG-008",
+    "RG-009",
+    "RG-013",
+    "RG-017",
+    "RG-020",
+    "RG-024",
+    "RG-029"
+   ]
+  },
+  "SEQ-003-retour-litige-remboursement": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 4,
+    "findings": [
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "cli,n01",
+      "message": "vertices 'cli' and 'n01' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     },
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "pf,n01",
+      "message": "vertices 'pf' and 'n01' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     },
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "pf,n29",
+      "message": "vertices 'pf' and 'n29' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     },
+     {
+      "code": "W-OVERLAP",
+      "severity": "warning",
+      "subject": "adm,n29",
+      "message": "vertices 'adm' and 'n29' overlap",
+      "fix": "move the siblings apart or nest one inside the other"
+     }
+    ]
+   },
+   "elements": 52,
+   "statut": {
+    "E": 0,
+    "I": 0,
+    "WARN": 0
+   },
+   "ids": [
+    "CA-F011-3",
+    "CA-F011-4",
+    "CA-F022-1",
+    "CA-F022-2",
+    "CA-F022-3",
+    "CA-F022-4",
+    "CA-F022-5",
+    "CA-F022-6",
+    "CA-F022-7",
+    "CA-F022-8",
+    "CA-F022-9",
+    "D30",
+    "D31",
+    "D32",
+    "D38",
+    "D39",
+    "D40",
+    "D42",
+    "D43",
+    "ENF-012",
+    "F011",
+    "F014",
+    "F022",
+    "RG-017",
+    "RG-019",
+    "RG-021",
+    "RG-022",
+    "RG-025",
+    "RG-027",
+    "RG-029",
+    "RG-030"
+   ]
+  },
+  "ACTIVITY-001-cycle-commande": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 52,
+   "statut": {
+    "E": 12,
+    "I": 1,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F001-3",
+    "CA-F007-1",
+    "CA-F007-2",
+    "CA-F007-3",
+    "CA-F007-4",
+    "CA-F008-2",
+    "CA-F009-2",
+    "CA-F009-3",
+    "CA-F010-1",
+    "CA-F010-2",
+    "CA-F010-3",
+    "CA-F010-4",
+    "CA-F014-1",
+    "CA-F014-2",
+    "D19",
+    "D22",
+    "D38",
+    "D41",
+    "D44",
+    "F001",
+    "F006",
+    "F007",
+    "F008",
+    "F009",
+    "F010",
+    "F014",
+    "RG-001",
+    "RG-002",
+    "RG-003",
+    "RG-008",
+    "RG-010",
+    "RG-011b",
+    "RG-013",
+    "RG-014",
+    "RG-017",
+    "RG-024",
+    "RG-026",
+    "RG-028",
+    "RG-029",
+    "US-008"
+   ]
+  },
+  "ACTIVITY-002-processus-retour": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 58,
+   "statut": {
+    "E": 12,
+    "I": 3,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F011-3",
+    "CA-F011-4",
+    "CA-F022-1",
+    "CA-F022-2",
+    "CA-F022-3",
+    "CA-F022-4",
+    "CA-F022-5",
+    "CA-F022-6",
+    "CA-F022-7",
+    "CA-F022-8",
+    "CA-F022-9",
+    "D19",
+    "D30",
+    "D31",
+    "D32",
+    "D38",
+    "D39",
+    "D40",
+    "D42",
+    "D43",
+    "ENF-009",
+    "ENF-012",
+    "F011",
+    "F022",
+    "RG-017",
+    "RG-019",
+    "RG-021",
+    "RG-022",
+    "RG-025",
+    "RG-027",
+    "RG-029",
+    "RG-030",
+    "US-014",
+    "US-015"
+   ]
+  },
+  "ACTIVITY-003-retenue-reversement": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 47,
+   "statut": {
+    "E": 10,
+    "I": 2,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F010-1",
+    "CA-F011-1",
+    "CA-F011-2",
+    "CA-F011-3",
+    "CA-F011-4",
+    "CA-F011-5",
+    "D16",
+    "D21",
+    "D29",
+    "D34",
+    "D38",
+    "ENF-008",
+    "F010",
+    "F011",
+    "F014",
+    "RG-005",
+    "RG-012",
+    "RG-018",
+    "RG-021",
+    "RG-024",
+    "RG-025",
+    "US-009"
+   ]
+  },
+  "STATE-001-commande": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 27,
+   "statut": {
+    "E": 15,
+    "I": 3,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F007-1",
+    "CA-F008-1",
+    "CA-F008-2",
+    "CA-F009-3",
+    "CA-F010-1",
+    "CA-F010-2",
+    "CA-F010-3",
+    "CA-F010-4",
+    "CA-F014-2",
+    "D22",
+    "D44",
+    "F007",
+    "F008",
+    "F009",
+    "F010",
+    "F014",
+    "RG-003",
+    "RG-008",
+    "RG-010",
+    "RG-011b",
+    "RG-013",
+    "RG-017",
+    "RG-029"
+   ]
+  },
+  "STATE-002-sous-commande": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 25,
+   "statut": {
+    "E": 11,
+    "I": 6,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F009-2",
+    "CA-F009-3",
+    "CA-F010-4",
+    "CA-F014-1",
+    "D22",
+    "F009",
+    "F010",
+    "F013",
+    "F014",
+    "RG-003",
+    "RG-008",
+    "RG-010",
+    "RG-011b",
+    "RG-029"
+   ]
+  },
+  "STATE-003-retour": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 27,
+   "statut": {
+    "E": 11,
+    "I": 8,
+    "WARN": 2
+   },
+   "ids": [
+    "CA-F022-1",
+    "CA-F022-2",
+    "CA-F022-3",
+    "CA-F022-5",
+    "CA-F022-6",
+    "CA-F022-7",
+    "CA-F022-8",
+    "D38",
+    "D39",
+    "D43",
+    "ENF-012",
+    "F022",
+    "RG-017",
+    "RG-019",
+    "RG-021",
+    "RG-022",
+    "RG-025",
+    "RG-027",
+    "RG-029",
+    "RG-030"
+   ]
+  },
+  "STATE-004-montant-vendeur": {
+   "validate_exit": 0,
+   "validate": {
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+   },
+   "elements": 20,
+   "statut": {
+    "E": 10,
+    "I": 2,
+    "WARN": 1
+   },
+   "ids": [
+    "CA-F010-1",
+    "CA-F011-1",
+    "CA-F011-2",
+    "CA-F011-3",
+    "CA-F011-4",
+    "CA-F011-5",
+    "D29",
+    "D34",
+    "F010",
+    "F011",
+    "RG-005",
+    "RG-012",
+    "RG-018",
+    "RG-021",
+    "RG-024",
+    "RG-025"
+   ]
+  }
+ },
+ "coverage": {
+  "F": {
+   "defined": 15,
+   "covered": [
+    "F001",
+    "F002",
+    "F003",
+    "F004",
+    "F005",
+    "F006",
+    "F007",
+    "F008",
+    "F009",
+    "F010",
+    "F011",
+    "F012",
+    "F013",
+    "F014",
+    "F022"
+   ],
+   "missing": []
+  },
+  "RG": {
+   "defined": 31,
+   "covered": [
+    "RG-001",
+    "RG-002",
+    "RG-003",
+    "RG-004",
+    "RG-005",
+    "RG-006",
+    "RG-007",
+    "RG-008",
+    "RG-009",
+    "RG-010",
+    "RG-011",
+    "RG-011b",
+    "RG-012",
+    "RG-013",
+    "RG-014",
+    "RG-015",
+    "RG-016",
+    "RG-017",
+    "RG-018",
+    "RG-019",
+    "RG-020",
+    "RG-021",
+    "RG-022",
+    "RG-023",
+    "RG-024",
+    "RG-025",
+    "RG-026",
+    "RG-027",
+    "RG-028",
+    "RG-029",
+    "RG-030"
+   ],
+   "missing": []
+  },
+  "CA": {
+   "defined": 48,
+   "covered": [
+    "CA-F001-1",
+    "CA-F001-2",
+    "CA-F001-3",
+    "CA-F002-1",
+    "CA-F002-2",
+    "CA-F002-3",
+    "CA-F003-1",
+    "CA-F003-2",
+    "CA-F003-3",
+    "CA-F004-1",
+    "CA-F004-2",
+    "CA-F005-1",
+    "CA-F006-1",
+    "CA-F006-2",
+    "CA-F007-1",
+    "CA-F007-2",
+    "CA-F007-3",
+    "CA-F007-4",
+    "CA-F008-1",
+    "CA-F008-2",
+    "CA-F009-1",
+    "CA-F009-2",
+    "CA-F009-3",
+    "CA-F010-1",
+    "CA-F010-2",
+    "CA-F010-3",
+    "CA-F010-4",
+    "CA-F011-1",
+    "CA-F011-2",
+    "CA-F011-3",
+    "CA-F011-4",
+    "CA-F011-5",
+    "CA-F012-1",
+    "CA-F012-2",
+    "CA-F013-1",
+    "CA-F013-2",
+    "CA-F013-3",
+    "CA-F014-1",
+    "CA-F014-2",
+    "CA-F022-1",
+    "CA-F022-2",
+    "CA-F022-3",
+    "CA-F022-4",
+    "CA-F022-5",
+    "CA-F022-6",
+    "CA-F022-7",
+    "CA-F022-8",
+    "CA-F022-9"
+   ],
+   "missing": []
+  },
+  "US": {
+   "defined": 15,
+   "covered": [
+    "US-001",
+    "US-002",
+    "US-003",
+    "US-004",
+    "US-005",
+    "US-006",
+    "US-007",
+    "US-008",
+    "US-009",
+    "US-010",
+    "US-011",
+    "US-012",
+    "US-013",
+    "US-014",
+    "US-015"
+   ],
+   "missing": []
+  },
+  "ENF": {
+   "defined": 12,
+   "covered": [
+    "ENF-007",
+    "ENF-008",
+    "ENF-009",
+    "ENF-010",
+    "ENF-012"
+   ],
+   "missing": [
+    "ENF-001",
+    "ENF-002",
+    "ENF-003",
+    "ENF-004",
+    "ENF-005",
+    "ENF-006",
+    "ENF-011"
+   ]
+  }
+ },
+ "map": {
+  "CA-F005-1": [
+   "UC-DIAG-01-achat"
+  ],
+  "US-013": [
+   "UC-DIAG-01-achat"
+  ],
+  "CA-F004-1": [
+   "UC-DIAG-01-achat"
+  ],
+  "F001": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "US-004": [
+   "UC-DIAG-01-achat"
+  ],
+  "D37": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "US-010": [
+   "UC-DIAG-01-achat"
+  ],
+  "CA-F012-1": [
+   "UC-DIAG-01-achat"
+  ],
+  "D39": [
+   "UC-DIAG-01-achat",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F004-2": [
+   "UC-DIAG-01-achat"
+  ],
+  "CA-F001-3": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "F007": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "F012": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "F005": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "D44": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "F006": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "CA-F001-1": [
+   "UC-DIAG-01-achat"
+  ],
+  "CA-F008-1": [
+   "UC-DIAG-01-achat",
+   "STATE-001-commande"
+  ],
+  "RG-007": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs"
+  ],
+  "RG-025": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-003-retour",
+   "STATE-004-montant-vendeur"
+  ],
+  "F004": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "RG-028": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "RG-017": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes",
+   "CLASS-02-retours-argent",
+   "SEQ-001-commande-multi-vendeurs",
+   "SEQ-002-collecte-livraison-encaissement",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-002-processus-retour",
+   "STATE-001-commande",
+   "STATE-003-retour"
+  ],
+  "CA-F001-2": [
+   "UC-DIAG-01-achat"
+  ],
+  "RG-014": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "RG-001": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "RG-002": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "CA-F008-2": [
+   "UC-DIAG-01-achat",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "US-005": [
+   "UC-DIAG-01-achat"
+  ],
+  "RG-030": [
+   "UC-DIAG-01-achat",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "D40": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "CA-F012-2": [
+   "UC-DIAG-01-achat"
+  ],
+  "RG-026": [
+   "UC-DIAG-01-achat",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "RG-009": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-002-collecte-livraison-encaissement"
+  ],
+  "F014": [
+   "UC-DIAG-01-achat",
+   "SEQ-001-commande-multi-vendeurs",
+   "SEQ-002-collecte-livraison-encaissement",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "RG-022": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "US-006": [
+   "UC-DIAG-01-achat"
+  ],
+  "RG-011": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "RG-006": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "RG-003": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "RG-019": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "US-012": [
+   "UC-DIAG-01-achat"
+  ],
+  "RG-010": [
+   "UC-DIAG-01-achat",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "F008": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "US-003": [
+   "UC-DIAG-01-achat"
+  ],
+  "RG-008": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "D41": [
+   "UC-DIAG-01-achat",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "F022": [
+   "UC-DIAG-01-achat",
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "RG-016": [
+   "UC-DIAG-02-vente"
+  ],
+  "CA-F002-1": [
+   "UC-DIAG-02-vente"
+  ],
+  "RG-011b": [
+   "UC-DIAG-02-vente",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "RG-005": [
+   "UC-DIAG-02-vente",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "ENF-007": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation"
+  ],
+  "CA-F002-3": [
+   "UC-DIAG-02-vente"
+  ],
+  "CA-F003-1": [
+   "UC-DIAG-02-vente"
+  ],
+  "US-007": [
+   "UC-DIAG-02-vente"
+  ],
+  "US-001": [
+   "UC-DIAG-02-vente"
+  ],
+  "RG-023": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "CA-F003-2": [
+   "UC-DIAG-02-vente"
+  ],
+  "RG-012": [
+   "UC-DIAG-02-vente",
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "F002": [
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "CA-F003-3": [
+   "UC-DIAG-02-vente"
+  ],
+  "F011": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "CA-F002-2": [
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "D43": [
+   "UC-DIAG-02-vente",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "US-009": [
+   "UC-DIAG-02-vente",
+   "ACTIVITY-003-retenue-reversement"
+  ],
+  "RG-018": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "RG-004": [
+   "UC-DIAG-02-vente"
+  ],
+  "F009": [
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "RG-027": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "RG-024": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "D33": [
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "D22": [
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "CA-F009-1": [
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "RG-021": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-003-retour",
+   "STATE-004-montant-vendeur"
+  ],
+  "US-014": [
+   "UC-DIAG-02-vente",
+   "CLASS-02-retours-argent",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "US-002": [
+   "UC-DIAG-02-vente"
+  ],
+  "RG-015": [
+   "UC-DIAG-02-vente",
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "F003": [
+   "UC-DIAG-02-vente",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "US-011": [
+   "UC-DIAG-03-exploitation"
+  ],
+  "CA-F013-2": [
+   "UC-DIAG-03-exploitation"
+  ],
+  "ENF-008": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-003-retenue-reversement"
+  ],
+  "RG-013": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "D31": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "CA-F010-1": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-001-commande",
+   "STATE-004-montant-vendeur"
+  ],
+  "RG-029": [
+   "UC-DIAG-03-exploitation",
+   "SEQ-002-collecte-livraison-encaissement",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-002-processus-retour",
+   "STATE-001-commande",
+   "STATE-002-sous-commande",
+   "STATE-003-retour"
+  ],
+  "US-015": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "CA-F011-5": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "D38": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-001-commande-multi-vendeurs",
+   "SEQ-002-collecte-livraison-encaissement",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-002-processus-retour",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-003-retour"
+  ],
+  "D19": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "CA-F013-3": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "US-008": [
+   "UC-DIAG-03-exploitation",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "F010": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-001-commande",
+   "STATE-002-sous-commande",
+   "STATE-004-montant-vendeur"
+  ],
+  "F013": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "STATE-002-sous-commande"
+  ],
+  "ENF-010": [
+   "UC-DIAG-03-exploitation"
+  ],
+  "ENF-012": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "RG-020": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement"
+  ],
+  "CA-F010-2": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "CA-F010-3": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-01-comptes-catalogue-commandes",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "CA-F011-2": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "CA-F010-4": [
+   "UC-DIAG-03-exploitation",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "CA-F022-5": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F022-6": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F013-1": [
+   "UC-DIAG-03-exploitation"
+  ],
+  "CA-F022-7": [
+   "UC-DIAG-03-exploitation",
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F006-1": [
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "CA-F006-2": [
+   "CLASS-01-comptes-catalogue-commandes"
+  ],
+  "D21": [
+   "CLASS-01-comptes-catalogue-commandes",
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement"
+  ],
+  "CA-F011-1": [
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "CA-F022-4": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "D29": [
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "D34": [
+   "CLASS-02-retours-argent",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "CA-F011-4": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "CA-F011-3": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "ACTIVITY-003-retenue-reversement",
+   "STATE-004-montant-vendeur"
+  ],
+  "D32": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "CA-F022-9": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "D30": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "D42": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "CA-F022-1": [
+   "CLASS-02-retours-argent",
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F007-2": [
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "CA-F009-2": [
+   "SEQ-001-commande-multi-vendeurs",
+   "SEQ-002-collecte-livraison-encaissement",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-002-sous-commande"
+  ],
+  "CA-F007-1": [
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "CA-F009-3": [
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande",
+   "STATE-002-sous-commande"
+  ],
+  "ENF-009": [
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-002-processus-retour"
+  ],
+  "CA-F014-1": [
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-002-sous-commande"
+  ],
+  "CA-F014-2": [
+   "SEQ-001-commande-multi-vendeurs",
+   "ACTIVITY-001-cycle-commande",
+   "STATE-001-commande"
+  ],
+  "CA-F022-3": [
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F022-2": [
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F022-8": [
+   "SEQ-003-retour-litige-remboursement",
+   "ACTIVITY-002-processus-retour",
+   "STATE-003-retour"
+  ],
+  "CA-F007-4": [
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "CA-F007-3": [
+   "ACTIVITY-001-cycle-commande"
+  ],
+  "D16": [
+   "ACTIVITY-003-retenue-reversement"
+  ]
+ },
+ "defined": {
+  "F": [
+   "F001",
+   "F002",
+   "F003",
+   "F004",
+   "F005",
+   "F006",
+   "F007",
+   "F008",
+   "F009",
+   "F010",
+   "F011",
+   "F012",
+   "F013",
+   "F014",
+   "F022"
+  ],
+  "RG": [
+   "RG-001",
+   "RG-002",
+   "RG-003",
+   "RG-004",
+   "RG-005",
+   "RG-006",
+   "RG-007",
+   "RG-008",
+   "RG-009",
+   "RG-010",
+   "RG-011",
+   "RG-011b",
+   "RG-012",
+   "RG-013",
+   "RG-014",
+   "RG-015",
+   "RG-016",
+   "RG-017",
+   "RG-018",
+   "RG-019",
+   "RG-020",
+   "RG-021",
+   "RG-022",
+   "RG-023",
+   "RG-024",
+   "RG-025",
+   "RG-026",
+   "RG-027",
+   "RG-028",
+   "RG-029",
+   "RG-030"
+  ],
+  "CA": [
+   "CA-F001-1",
+   "CA-F001-2",
+   "CA-F001-3",
+   "CA-F002-1",
+   "CA-F002-2",
+   "CA-F002-3",
+   "CA-F003-1",
+   "CA-F003-2",
+   "CA-F003-3",
+   "CA-F004-1",
+   "CA-F004-2",
+   "CA-F005-1",
+   "CA-F006-1",
+   "CA-F006-2",
+   "CA-F007-1",
+   "CA-F007-2",
+   "CA-F007-3",
+   "CA-F007-4",
+   "CA-F008-1",
+   "CA-F008-2",
+   "CA-F009-1",
+   "CA-F009-2",
+   "CA-F009-3",
+   "CA-F010-1",
+   "CA-F010-2",
+   "CA-F010-3",
+   "CA-F010-4",
+   "CA-F011-1",
+   "CA-F011-2",
+   "CA-F011-3",
+   "CA-F011-4",
+   "CA-F011-5",
+   "CA-F012-1",
+   "CA-F012-2",
+   "CA-F013-1",
+   "CA-F013-2",
+   "CA-F013-3",
+   "CA-F014-1",
+   "CA-F014-2",
+   "CA-F022-1",
+   "CA-F022-2",
+   "CA-F022-3",
+   "CA-F022-4",
+   "CA-F022-5",
+   "CA-F022-6",
+   "CA-F022-7",
+   "CA-F022-8",
+   "CA-F022-9"
+  ],
+  "US": [
+   "US-001",
+   "US-002",
+   "US-003",
+   "US-004",
+   "US-005",
+   "US-006",
+   "US-007",
+   "US-008",
+   "US-009",
+   "US-010",
+   "US-011",
+   "US-012",
+   "US-013",
+   "US-014",
+   "US-015"
+  ],
+  "ENF": [
+   "ENF-001",
+   "ENF-002",
+   "ENF-003",
+   "ENF-004",
+   "ENF-005",
+   "ENF-006",
+   "ENF-007",
+   "ENF-008",
+   "ENF-009",
+   "ENF-010",
+   "ENF-011",
+   "ENF-012"
+  ]
+ }
+}
