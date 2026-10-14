@@ -132,3 +132,45 @@ Référence : `specs/002-schema-donnees/data-model.md` (schéma, écarts UML) et
 - **Options** : (1) l'utilisateur MySQL de l'application n'a que `SELECT, INSERT` sur `audit_entries` ; les migrations utilisent un autre utilisateur ; (2) déclencheurs `BEFORE UPDATE/DELETE` qui lèvent une erreur ; (3) contrôle applicatif seul.
 - **Décision** : option 1. Une correction est une nouvelle ligne `action_type = correction` qui référence l'entrée corrigée (contrainte `CHECK`).
 - **Conséquences** : deux comptes MySQL (application et migration), noms en variables d'environnement (`DB_USERNAME`, `DB_MIGRATION_USERNAME`) — à mettre en place par T-004/T-005 ; le test de T-008 vérifie qu'un `UPDATE` est refusé.
+
+---
+
+## ADR-016 — Langue et forme du contrat d'API : clés et codes d'erreur en anglais, messages en français
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-003
+- **Contexte** : Constitution IX (contrats d'API en anglais, messages utilisateurs en français) ; les conventions de socle T-001 (`specs/001-architecture-socle/contracts/format-erreur.md`, `pagination.md`) donnaient des exemples en français (`acces_refuse`, `par_page`) ; le schéma T-002 est en anglais snake_case (ADR-010).
+- **Options** : (1) clés JSON, paramètres et `error.code` en anglais snake_case, `error.message` en français ; (2) tout en français (contraire à la Constitution IX et au schéma) ; (3) mélange selon le module (incohérent pour le frontend).
+- **Décision** : option 1. Catalogue fermé de 24 codes dans `specs/003-contrat-api/contracts/error-codes.md` (généré, chaque code lié à un seul statut HTTP). Pagination `page` / `per_page`. Les exemples francisés de T-001 sont remplacés : `acces_refuse` → `forbidden`, `ressource_introuvable` → `not_found`, `validation_echouee` → `validation_failed`, `fichier_refuse` → `file_rejected`, `par_page` → `per_page`. L'enveloppe `{error:{code,message,details}}` et `{data, meta}` de T-001 est conservée.
+- **Conséquences** : les fichiers T-001 ne sont pas réécrits (statut Proposé, en attente de @user) ; ils renvoient de fait à T-003 pour les noms définitifs. Le frontend s'appuie sur `code`, jamais sur `message`.
+
+## ADR-017 — Application de la matrice des permissions : 403 pour le rôle, 404 pour la propriété
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-003 (précise ADR-006)
+- **Contexte** : cahier §5 (matrice), ENF-007, Constitution V ; T-001 (`authentification.md`, `statuts-http.md`) laissait à T-003 le choix 403/404 pour une ressource d'un autre titulaire ; l'inscription vendeur est libre (D9), donc un vendeur peut sonder les identifiants des autres.
+- **Options** : (1) rôle non autorisé → 403 `forbidden`, ressource d'un autre titulaire du même rôle → 404 `not_found` (n'indique pas l'existence) ; (2) 403 dans les deux cas (révèle l'existence des commandes, retours et montants d'un concurrent) ; (3) 404 dans les deux cas (masque une erreur de rôle utile au frontend).
+- **Décision** : option 1. Chaque opération porte `x-roles`, `x-ownership` et `x-matrix-rows` ; `authorization-matrix.yaml` est la source machine de la matrice rôle × action (17 lignes §5 « MP-01..17 » + 5 capacités dérivées « MX-01..05 »). Les routes sont séparées par espace (`/seller/...`, `/admin/...`, public) pour que le contrôle de rôle se fasse par groupe de routes, la propriété par politique de modèle (FR-058).
+- **Conséquences** : les tests de T-066 dérivent un cas autorisé et un cas interdit par ligne directement du YAML ; la société de livraison n'a aucun point d'accès (D38).
+
+## ADR-018 — Montants en chaîne décimale dans le JSON
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-003 (prolonge ADR-011)
+- **Contexte** : ADR-011 (`DECIMAL(10,2)` MAD) ; JavaScript n'a pas de type décimal exact ; Constitution IV (montants exacts au dirham près).
+- **Options** : (1) chaîne `"220.00"` (motif `^-?\d{1,8}\.\d{2}$`) ; (2) nombre JSON (arrondi binaire possible côté client) ; (3) entier en centimes (diverge du schéma et de l'affichage).
+- **Décision** : option 1 pour toute valeur monétaire, en entrée comme en sortie ; devise implicite MAD.
+- **Conséquences** : le frontend ne calcule jamais un montant qui fait foi ; il affiche ceux renvoyés par l'API (ex. `previewOrder`).
+
+## ADR-019 — Panier visiteur identifié par un jeton opaque `X-Cart-Token`
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-003 · **Dépend de** : HYPOTHÈSE H-01 (panier visiteur, §5)
+- **Contexte** : §5 autorise le panier au visiteur (HYPOTHÈSE) ; CA-F001-3 rattache le panier au compte à la connexion ; ADR-006 exclut la session serveur ; T-002 stocke `carts.guest_token_hash` (SHA-256, jamais le jeton en clair).
+- **Options** : (1) jeton opaque émis par l'API au premier ajout (en-tête de réponse), renvoyé par le client en en-tête `X-Cart-Token` ; (2) cookie de session (contraire à ADR-006) ; (3) panier local au navigateur seulement (stock non vérifié côté serveur, CA-F003-2).
+- **Décision** : option 1 ; à la connexion ou à l'inscription, le panier visiteur est fusionné dans celui du client.
+- **Conséquences** : si @user refuse H-01, les opérations panier passent au rôle client seul, sans autre changement de contrat.
+
+## ADR-020 — Transitions d'état exposées en POST sur sous-ressource verbale
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-003 (applique Constitution III et ADR-013)
+- **Contexte** : STATE-001..004 ; une seule porte par état métier (services T-027, T-036, T-043) ; les saisies de l'administrateur sont historisées (ENF-008).
+- **Options** : (1) `POST /…/{id}/accept`, `/cancel`, `/delivered-paid`, etc., une route par transition ; (2) `PATCH {status: …}` générique (laisse le client choisir n'importe quel état, validations dispersées) ; (3) RPC unique `/transitions`.
+- **Décision** : option 1. Une transition impossible depuis l'état courant renvoie 409 `invalid_transition` avec `details.current_status`. Une transition non modélisée par l'UML est réservée au contrat avec `x-blocked-by` et renvoie 501 `feature_blocked` (U-01 `adminInspectReturn`, U-02 `adminCancelOrder`).
+- **Conséquences** : chaque route correspond à une transition nommée d'un diagramme d'états ; le journal d'audit enregistre `from_status` / `to_status` par appel.

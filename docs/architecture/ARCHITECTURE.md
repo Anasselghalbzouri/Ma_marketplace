@@ -218,5 +218,6 @@ Exigences citées par d'autres tâches mais traitées hors de T-001 : ENF-001 (l
 | Constitution du projet | `.specify/memory/constitution.md` | toutes les tâches |
 | Dossier d'architecture (ce document) + ADR + risques + sécurité | `docs/architecture/` | toutes les tâches |
 | **T-002** Schéma de données physique : correspondance UML → tables, écarts E-01..E-23, DDL de référence MySQL, scripts de validation ; ADR-010 à ADR-015 | `specs/002-schema-donnees/data-model.md`, `contracts/schema-reference.mysql.sql`, `validation/` | T-003, T-005, tâches Backend |
+| **T-003** Contrat d'API V1 (OpenAPI 3.1, 101 opérations par module M01–M11 + socle), matrice rôle × action (MP-01..17 du §5 + MX-01..05), catalogue des codes d'erreur, générateur et vérification ; ADR-016 à ADR-020 | `specs/003-contrat-api/contracts/openapi.yaml`, `authorization-matrix.yaml` / `.md`, `api-reference.md`, `error-codes.md`, `tooling/`, `validation/` | T-006, tâches Backend et Frontend, T-066 |
 
 **Réserves** : ce dossier est au statut **Proposé** ; les valeurs ENF-003/004/005 et les volumes (ENF-006) restent HYPOTHÈSE/MANQUANT ; les points ouverts du cahier §22 restent à trancher par @user (T-070) ; aucun élément de ce dossier ne remplace le cahier des charges v1.1, qui reste la source de référence.

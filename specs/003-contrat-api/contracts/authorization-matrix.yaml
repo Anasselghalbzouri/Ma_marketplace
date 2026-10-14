@@ -1,0 +1,345 @@
+# GÉNÉRÉ par tooling/build_contract.py — matrice rôle × action (T-003)
+version: 1.0.0-proposed
+status: Proposé — CP-1 à valider par @user
+legend:
+  allow: autorisé
+  own: autorisé sur ses propres ressources seulement
+  allow_hyp: autorisé (HYPOTHÈSE du cahier)
+  deny: interdit
+rows:
+- id: MP-01
+  capability: Consulter le catalogue, les fiches produits, les avis
+  source: §5
+  roles:
+    visitor: allow
+    customer: allow
+    seller: allow
+    admin: allow
+  note: null
+  operations:
+  - listProducts
+  - getProduct
+  - listProductReviews
+- id: MP-02
+  capability: Rechercher / filtrer par catégorie
+  source: §5
+  roles:
+    visitor: allow
+    customer: allow
+    seller: allow
+    admin: allow
+  note: null
+  operations:
+  - listProducts
+  - listCategories
+- id: MP-03
+  capability: Gérer un panier
+  source: §5
+  roles:
+    visitor: allow_hyp
+    customer: own
+    seller: deny
+    admin: deny
+  note: 'Visiteur : HYPOTHÈSE H-01'
+  operations:
+  - getCart
+  - addCartItem
+  - updateCartItem
+  - removeCartItem
+- id: MP-04
+  capability: Passer commande (compte obligatoire)
+  source: §5
+  roles:
+    visitor: deny
+    customer: allow
+    seller: deny
+    admin: deny
+  note: RG-028, D41
+  operations:
+  - previewOrder
+  - createOrder
+- id: MP-05
+  capability: Suivre / annuler ses commandes
+  source: §5
+  roles:
+    visitor: deny
+    customer: own
+    seller: deny
+    admin: allow
+  note: Annulation administrateur bloquée (U-02)
+  operations:
+  - listMyOrders
+  - getMyOrder
+  - cancelMyOrder
+  - getOrderConfirmation
+  - adminListOrders
+  - adminGetOrder
+  - adminCancelOrder
+- id: MP-06
+  capability: Demander le retour d'un produit reçu (7 jours, tout motif)
+  source: §5
+  roles:
+    visitor: deny
+    customer: own
+    seller: deny
+    admin: deny
+  note: null
+  operations:
+  - uploadPhoto
+  - getReturnEligibility
+  - createReturn
+  - listMyReturns
+  - getMyReturn
+- id: MP-07
+  capability: Vérifier un produit retourné (conforme / contesté) et décider de sa remise en vente
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: own
+    admin: allow
+  note: 'Admin : en cas de litige ou d''absence de vérification (U-01, Q44)'
+  operations:
+  - sellerListReturns
+  - sellerGetReturn
+  - sellerInspectReturn
+  - adminInspectReturn
+  - adminDecideDispute
+- id: MP-08
+  capability: Arbitrer un litige de retour
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow
+  note: null
+  operations:
+  - adminGetReturn
+  - adminDecideDispute
+- id: MP-09
+  capability: Enregistrer un remboursement client
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow
+  note: null
+  operations:
+  - adminListReturns
+  - adminGetReturn
+  - adminRecordRefund
+- id: MP-10
+  capability: Laisser un avis / une note
+  source: §5
+  roles:
+    visitor: deny
+    customer: own
+    seller: deny
+    admin: deny
+  note: Produit reçu uniquement (RG-011)
+  operations:
+  - upsertReview
+- id: MP-11
+  capability: Créer / modifier sa boutique et ses produits (dont caractère périssable/personnalisé)
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: own
+    admin: allow
+  note: 'Admin : modération'
+  operations:
+  - getSellerProfile
+  - updateSellerProfile
+  - updateShop
+  - uploadPhoto
+  - listSellerProducts
+  - createSellerProduct
+  - getSellerProduct
+  - updateSellerProduct
+  - deleteSellerProduct
+  - adminHideProduct
+  - adminUnhideProduct
+- id: MP-12
+  capability: Accepter / refuser / préparer une sous-commande
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: own
+    admin: allow
+  note: null
+  operations:
+  - listSellerSubOrders
+  - getSellerSubOrder
+  - acceptSubOrder
+  - refuseSubOrder
+  - markSubOrderReady
+  - adminAcceptSubOrder
+  - adminRefuseSubOrder
+  - adminMarkSubOrderReady
+- id: MP-13
+  capability: Saisir collecte, livraison, encaissement, reprise de retour
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow
+  note: Admin seul (RG-029, D38)
+  operations:
+  - adminHandoverOrder
+  - adminMarkSubOrderCollected
+  - adminMarkOutForDelivery
+  - adminMarkDeliveredPaid
+  - adminMarkDeliveryFailed
+  - adminListDeliveryPartners
+  - adminCreateDeliveryPartner
+  - adminCreateFundRemittance
+  - adminListFundRemittances
+  - adminListCashDiscrepancies
+  - adminRequestReturnPickup
+  - adminMarkReturnPickedUp
+- id: MP-14
+  capability: Consulter ses montants retenus, disponibles, reversés et déduits
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: own
+    admin: allow
+  note: null
+  operations:
+  - sellerGetAmountsSummary
+  - sellerListAmounts
+  - sellerListDeductions
+  - sellerListPayouts
+  - adminListSellerAmounts
+- id: MP-15
+  capability: Enregistrer un reversement hebdomadaire (virement ou espèces)
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow
+  note: null
+  operations:
+  - adminPreviewPayouts
+  - adminCreatePayout
+  - adminListPayouts
+- id: MP-16
+  capability: Masquer un produit / suspendre un vendeur / masquer un avis
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow
+  note: null
+  operations:
+  - adminHideProduct
+  - adminUnhideProduct
+  - adminSuspendSeller
+  - adminReactivateSeller
+  - adminListReviews
+  - adminHideReview
+  - adminUnhideReview
+  - adminListProducts
+- id: MP-17
+  capability: Gérer les catégories (dont exclusions de retour), la zone clients et la liste des communes vendeurs
+  source: §5
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow
+  note: null
+  operations:
+  - adminListCategories
+  - adminCreateCategory
+  - adminUpdateCategory
+  - adminDeleteCategory
+  - adminListServedCities
+  - adminCreateServedCity
+  - adminUpdateServedCity
+  - adminDeleteServedCity
+  - adminListSellerCommunes
+  - adminCreateSellerCommune
+  - adminUpdateSellerCommune
+  - adminDeleteSellerCommune
+- id: MX-01
+  capability: S'inscrire, se connecter, se déconnecter, consulter son compte
+  source: F001, F002, UC-004, UC-010
+  roles:
+    visitor: allow
+    customer: own
+    seller: own
+    admin: own
+  note: 'Inscription : visiteur ; déconnexion et compte : titulaire'
+  operations:
+  - registerCustomer
+  - login
+  - logout
+  - getMe
+  - registerSeller
+- id: MX-02
+  capability: Consulter les référentiels publics (villes desservies, communes vendeurs)
+  source: F002, F007
+  roles:
+    visitor: allow
+    customer: allow
+    seller: allow
+    admin: allow
+  note: Nécessaire aux formulaires d'inscription et de commande
+  operations:
+  - listSellerCommunes
+  - listServedCities
+- id: MX-03
+  capability: Consulter ses notifications internes
+  source: F014, T-009
+  roles:
+    visitor: deny
+    customer: own
+    seller: own
+    admin: own
+  note: null
+  operations:
+  - listNotifications
+  - markNotificationRead
+- id: MX-04
+  capability: Superviser vendeurs, produits, commandes, retours, montants et journal d'audit
+  source: F013, UC-023, ENF-008
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow_hyp
+  note: 'Périmètre de supervision : HYPOTHÈSE (F013)'
+  operations:
+  - adminListOrders
+  - adminGetOrder
+  - adminListFundRemittances
+  - adminListCashDiscrepancies
+  - adminListReturns
+  - adminGetReturn
+  - adminListSellerAmounts
+  - adminListPayouts
+  - adminListSellers
+  - adminGetSeller
+  - adminListProducts
+  - adminListAuditEntries
+- id: MX-05
+  capability: Gérer les paramètres métier
+  source: H-08, T-007
+  roles:
+    visitor: deny
+    customer: deny
+    seller: deny
+    admin: allow
+  note: null
+  operations:
+  - adminListSettings
+  - adminUpdateSetting
