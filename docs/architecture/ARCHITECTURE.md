@@ -217,5 +217,6 @@ Exigences citées par d'autres tâches mais traitées hors de T-001 : ENF-001 (l
 | Plan technique, arbitrages, modèle de socle, conventions, mise en route | `specs/001-architecture-socle/plan.md`, `research.md`, `data-model.md`, `contracts/`, `quickstart.md` | T-004 (dépôt, CI), T-069 (hébergement) |
 | Constitution du projet | `.specify/memory/constitution.md` | toutes les tâches |
 | Dossier d'architecture (ce document) + ADR + risques + sécurité | `docs/architecture/` | toutes les tâches |
+| **T-002** Schéma de données physique : correspondance UML → tables, écarts E-01..E-23, DDL de référence MySQL, scripts de validation ; ADR-010 à ADR-015 | `specs/002-schema-donnees/data-model.md`, `contracts/schema-reference.mysql.sql`, `validation/` | T-003, T-005, tâches Backend |
 
 **Réserves** : ce dossier est au statut **Proposé** ; les valeurs ENF-003/004/005 et les volumes (ENF-006) restent HYPOTHÈSE/MANQUANT ; les points ouverts du cahier §22 restent à trancher par @user (T-070) ; aucun élément de ce dossier ne remplace le cahier des charges v1.1, qui reste la source de référence.

@@ -21,6 +21,8 @@ Chaque risque indique sa source (constat du plan, exigence du cahier, décision 
 | R-12 | **Absence de conception d'écrans** : les interfaces seront construites depuis les parcours P1–P5 | HYPOTHÈSE du plan (M-03) | Retravail d'interfaces si une conception arrive ensuite | Socle front (routage, client d'API, cadre i18n, composants à 360 px) séparé des écrans métier ; les écrans restent remplaçables | Frontend (T-012+) |
 | R-13 | **Historisation absente du modèle UML** (aucune classe d'audit dans CLASS-01/02) | U-03 (HYPOTHÈSE) | Modèle de données à revoir si l'hypothèse tombe | ADR-008 décide l'historisation transverse ; T-002 intègre les tables d'audit ; Blueprint informé de l'écart (U-03) | Architecte (T-002), Blueprint |
 | R-14 | **Dérive d'horloge et fuseau horaire** sur les échéances (délais de 7 j, 12 j, semaine de reversement) | RG-018, RG-024, ENF-012 | Statuts ou alertes calculés à la mauvaise date | Fuseau de la Plateforme explicite (`Africa/Casablanca`), échéances stockées en UTC, calculs de délais via le module Paramètres, tests à horloge simulée | Backend (T-007, T-011) |
+| R-19 | **Contraintes `CHECK` perdues lors de l'écriture des migrations** (Laravel ne les génère pas nativement) | T-002, ADR-012/013 | Prix, stock, note ou statuts invalides acceptés en base | T-005 rejoue `specs/002-schema-donnees/validation/coverage.py` et `probe_constraints.py` sur la base migrée | Backend (T-005) |
+| R-20 | **Perte ou rotation de la clé `APP_KEY`** : données bancaires et de remboursement illisibles | ADR-014 | Reversements par virement et remboursements bloqués | Clé sauvegardée hors dépôt avec les secrets d'exploitation ; procédure de rechiffrement avant rotation | Release (T-069) |
 
 ## 2. Risques fermés ou transmis
 

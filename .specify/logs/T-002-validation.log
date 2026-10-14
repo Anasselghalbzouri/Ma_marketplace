@@ -1,0 +1,77 @@
+## run_sql
+reset.sql : 3 instructions exécutées sans erreur
+../contracts/schema-reference.mysql.sql : 31 instructions exécutées sans erreur
+EXIT=0
+## coverage
+Classes UML lues : 24 ; énumérations UML lues : 10 ; tables en base : 30
+OK  ENT-001   Client                       -> customers
+OK  ENT-002   Vendeur                      -> sellers
+OK  ENT-003   Boutique                     -> shops
+OK  ENT-004   Produit                      -> products
+OK  ENT-005   Catégorie                    -> categories
+OK  ENT-006a  CommuneVendeur               -> seller_communes
+OK  ENT-006b  VilleDesservie               -> served_cities
+OK  ENT-007   Panier                       -> carts
+OK  ENT-007b  LignePanier                  -> cart_items
+OK  ENT-008   Commande                     -> orders
+OK  ENT-009   SousCommande   [I]           -> sub_orders
+OK  ENT-010   LigneCommande   [I]          -> order_lines
+OK  ENT-011   Retour                       -> product_returns
+OK  ENT-012   Vérification                 -> return_inspections
+OK  ENT-013   Litige                       -> return_disputes
+OK  ENT-014   Remboursement                -> refunds
+OK  ENT-015   FraisDeRetour                -> return_fees
+OK  ENT-016   MontantVendeur   [I]         -> seller_amounts
+OK  ENT-017   Déduction                    -> deductions
+OK  ENT-018   Reversement                  -> payouts
+OK  ENT-019   RemiseDeFonds   [I]          -> fund_remittances
+OK  ENT-019b  Écart   [I]                  -> cash_discrepancies
+OK  ENT-020   Avis                         -> reviews
+OK  ENT-021   «externe»  SociétéDeLivraison -> delivery_partners
+OK  EN-IF     ImputationFrais              -> CHECK sur return_fees.charged_to, return_disputes.fee_charged_to (valeurs UML 2 / base 2)
+OK  EN-MOT    MotifRetour                  -> CHECK sur product_returns.reason (valeurs UML 4 / base 4)
+OK  EN-MR     ModeReversement              -> CHECK sur sellers.payout_method, payouts.method (valeurs UML 2 / base 2)
+OK  EN-MR2    ModeReversement              -> CHECK sur sellers.payout_method, payouts.method (valeurs UML 2 / base 2)
+OK  EN-MRB    MoyenRemboursement           -> CHECK sur product_returns.refund_method, refunds.method (valeurs UML 2 / base 2)
+OK  EN-RV     RésultatVérification         -> CHECK sur return_inspections.result (valeurs UML 2 / base 2)
+OK  EN-SC     StatutCommande               -> CHECK sur orders.status (valeurs UML 7 / base 7)
+OK  EN-SM     StatutMontant                -> CHECK sur seller_amounts.status (valeurs UML 4 / base 4)
+OK  EN-SR     StatutRetour                 -> CHECK sur product_returns.status (valeurs UML 8 / base 8)
+OK  EN-SSC    StatutSousCommande           -> CHECK sur sub_orders.status (valeurs UML 6 / base 6)
+OK  contrainte prix > 0   -> products.ck_products_price_positive : (`price` > 0)
+OK  contrainte stock >= 0 -> products.ck_products_stock_non_negative : (`stock` >= 0)
+OK  contrainte note 1..5  -> reviews.ck_reviews_rating_range : (`rating` between 1 and 5)
+Résultat : 0 manque(s)
+EXIT=0
+## probe_constraints
+Jeu valide : 15 insertions acceptées
+OK refusé [3819] : prix = 0 refusé (prix > 0)
+OK refusé [3819] : prix < 0 refusé (prix > 0)
+OK refusé [3819] : stock < 0 refusé (stock >= 0)
+OK refusé [3819] : décrément de stock sous 0 refusé
+OK refusé [3819] : prix figé unit_price = 0 refusé
+OK refusé [3819] : note 0 refusée (1..5)
+OK refusé [3819] : note 6 refusée (1..5)
+OK refusé [1062] : 2e avis même produit/commande refusé (RG-011)
+OK refusé [1452] : avis sur produit ≠ ligne refusé (FK composite)
+OK refusé [3819] : quantité panier 0 refusée
+OK refusé [3819] : statut commande hors énumération refusé
+OK refusé [3819] : livrée et payée sans montant/date refusée (CA-F010-1)
+OK refusé [3819] : échec sans motif refusé (CA-F010-3)
+OK refusé [3819] : refus sous-commande sans motif refusé
+OK refusé [1062] : 2e sous-commande même vendeur refusée (RG-003)
+OK refusé [3819] : virement sans coordonnées bancaires refusé (CA-F002-2)
+OK refusé [1062] : 2e boutique pour un vendeur refusée (H-06)
+OK refusé [3819] : motif de retour hors énumération refusé
+OK refusé [3819] : remboursement en espèces refusé (RG-022)
+OK refusé [3819] : montant vendeur Reversé sans reversement refusé
+OK refusé [3819] : reversement espèces sans preuve refusé
+OK refusé [3819] : audit financier sans montant refusé (ENF-008)
+OK refusé [3819] : rôle inconnu refusé
+Violations refusées : 23/23 ; acceptées à tort : 0
+EXIT=0
+## probe_audit_grants
+INSERT par l'utilisateur applicatif : accepté
+OK UPDATE refusé [1142]
+OK DELETE refusé [1142]
+EXIT=0

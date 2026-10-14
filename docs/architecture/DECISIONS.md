@@ -78,3 +78,57 @@ Contexte commun : **C-07 — le porteur du projet n'a imposé aucune contrainte 
 - **Options** : cet emplacement (choisi) ; un autre répertoire sur l'hôte ; un dépôt distant à créer par T-004.
 - **Décision** : racine du projet `/opt/data/projects/marketplace-produits-locaux-maroc/`, initialisée comme dépôt Git et outillée par Spec Kit (`.specify/`, `.claude/skills/`) ; documents d'architecture dans `docs/architecture/`, spécification du socle dans `specs/001-architecture-socle/`.
 - **Conséquences** : T-004 et T-069 s'appuient sur cette racine ; si @user préfère un autre emplacement ou un dépôt distant, le contenu est déplaçable sans modification — seule cette décision change.
+
+---
+
+## Décisions de T-002 — Schéma de données physique (2026-10-14)
+
+Référence : `specs/002-schema-donnees/data-model.md` (schéma, écarts UML) et `specs/002-schema-donnees/contracts/schema-reference.mysql.sql` (DDL de référence validé sur MySQL 8.4).
+
+## ADR-010 — Conventions de nommage et de clés du schéma
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-002
+- **Contexte** : Constitution IX (code en anglais, documentation en français) ; Laravel 11 (ADR-001) attend des tables au pluriel et des clés `<singulier>_id` ; les diagrammes UML sont en français.
+- **Options** : (1) noms anglais `snake_case`, tables au pluriel, clé `id BIGINT UNSIGNED` auto-incrémentée ; (2) noms français (contraire à la Constitution IX, accents interdits dans les identifiants) ; (3) clés UUID/ULID partout (index plus lourds, pas de besoin d'identifiant global en V1).
+- **Décision** : option 1. Correspondance UML ↔ table tenue dans `data-model.md` §2. Les numéros visibles des utilisateurs passent par une colonne dédiée (`orders.reference`), jamais par l'`id`.
+- **Conséquences** : la correspondance français ↔ anglais doit rester à jour ; `RETURN` étant un mot réservé SQL, la table de l'entité Retour est `product_returns`.
+
+## ADR-011 — Montants en `DECIMAL(10,2)` (MAD)
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-002
+- **Contexte** : RG-007 (prix en MAD), RG-012/018/021/022 (calculs de montants vendeurs, déductions, remboursements), Constitution IV (argent exact et traçable).
+- **Options** : (1) `DECIMAL(10,2)` ; (2) entier en centimes (exact, mais conversions partout et lecture humaine moins directe) ; (3) `FLOAT/DOUBLE` (arrondis binaires, interdit pour l'argent).
+- **Décision** : option 1 ; plafond 99 999 999,99 MAD par valeur ; la devise n'est pas stockée en V1 (MAD unique, RG-007) — une colonne devise sera ajoutée avec la livraison internationale (§21).
+- **Conséquences** : côté PHP, les montants sont manipulés en chaîne ou via une bibliothèque décimale, jamais en `float` ; les tests de calcul (CA-F011-5 : 500 − 80 = 420) comparent des valeurs exactes.
+
+## ADR-012 — Énumérations UML en `VARCHAR` + contrainte `CHECK`
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-002
+- **Contexte** : 9 énumérations UML (CLASS-01/02) ; plusieurs sont HYPOTHÈSE (étapes §7, H-03) et peuvent évoluer ; MySQL 8.0.16+ applique les `CHECK`.
+- **Options** : (1) `VARCHAR(32)` + `CHECK (col IN (…))` nommé, miroir d'une enum PHP « backed » ; (2) type `ENUM` MySQL (ajout de valeur = `ALTER` réécrivant la colonne, ordre implicite piégeux) ; (3) table de référence par énumération (jointures inutiles pour des listes fermées).
+- **Décision** : option 1 ; valeurs en anglais `snake_case` ; correspondance des valeurs dans `data-model.md` §4.
+- **Conséquences** : ajouter une valeur = migration qui remplace la contrainte (rapide, sans réécriture des données) ; la base refuse toute valeur hors liste (vérifié par essai).
+
+## ADR-013 — Partage des règles entre base et services
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-002
+- **Contexte** : Constitution III (une seule porte par état métier) ; certaines règles sont statiques (prix > 0), d'autres dépendent du temps ou d'autres lignes (RG-006, RG-019, RG-024, quantité ≤ stock).
+- **Options** : (1) la base garantit les invariants statiques d'une ligne (CHECK, UNIQUE, FK), les services garantissent les règles dynamiques et les transitions d'état ; (2) tout en déclencheurs SQL (logique cachée, difficile à tester à horloge simulée) ; (3) tout dans les services (une écriture directe peut corrompre l'argent).
+- **Décision** : option 1. Aucun déclencheur SQL en V1. Les transitions d'état restent dans les services uniques (T-027, T-036, T-043) ; la base refuse les états incomplets (ex. « livrée et payée » sans montant ni date).
+- **Conséquences** : la liste « garanti par la base / garanti par le service » de `data-model.md` §5 sert de base aux tests de T-005 et des tâches Backend.
+
+## ADR-014 — Chiffrement applicatif des données bancaires et de remboursement
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-002
+- **Contexte** : FR-055 et §19 (coordonnées bancaires vendeurs, coordonnées de remboursement clients visibles du seul administrateur et du titulaire) ; loi 09-08 ; sauvegardes quotidiennes (T-069).
+- **Options** : (1) chiffrement applicatif de la colonne (cast chiffré Laravel, clé `APP_KEY` en variable d'environnement) ; (2) chiffrement du disque seul (ne protège ni les sauvegardes logiques ni les requêtes) ; (3) aucun chiffrement (contraire à la minimisation).
+- **Décision** : option 1 pour `sellers.bank_details` et `product_returns.refund_details` (type `TEXT`). La clé n'est jamais dans le dépôt.
+- **Conséquences** : ces colonnes ne sont ni indexables ni recherchables ; une rotation de `APP_KEY` impose un rechiffrement planifié (à prévoir par T-069) ; perte de la clé = perte de ces données.
+
+## ADR-015 — Journal d'audit en ajout seul garanti par les droits MySQL
+
+- **Statut** : Proposé · **Date** : 2026-10-14 · **Tâche** : T-002 (précise ADR-008)
+- **Contexte** : ADR-008 (journal non modifiable), ENF-008 ; T-002 rend le journal physique (`audit_entries`).
+- **Options** : (1) l'utilisateur MySQL de l'application n'a que `SELECT, INSERT` sur `audit_entries` ; les migrations utilisent un autre utilisateur ; (2) déclencheurs `BEFORE UPDATE/DELETE` qui lèvent une erreur ; (3) contrôle applicatif seul.
+- **Décision** : option 1. Une correction est une nouvelle ligne `action_type = correction` qui référence l'entrée corrigée (contrainte `CHECK`).
+- **Conséquences** : deux comptes MySQL (application et migration), noms en variables d'environnement (`DB_USERNAME`, `DB_MIGRATION_USERNAME`) — à mettre en place par T-004/T-005 ; le test de T-008 vérifie qu'un `UPDATE` est refusé.

@@ -1,0 +1,18 @@
+Feature : specs/002-schema-donnees (T-002, schéma de données physique). Langue : français.
+
+IMPORTANT — fichiers déjà produits par l'architecte, à RÉUTILISER et à NE PAS écraser ni réécrire :
+- specs/002-schema-donnees/data-model.md (correspondance UML -> tables, colonnes, énumérations, règles base/service, index, 23 écarts UML E-01..E-23, résultats de validation)
+- specs/002-schema-donnees/contracts/schema-reference.mysql.sql (DDL de référence, 30 tables, validé sur MySQL 8.4.6)
+- specs/002-schema-donnees/validation/ (scripts de vérification et README)
+- docs/architecture/DECISIONS.md (ADR-010 à ADR-015 déjà ajoutés pour T-002)
+Si l'étape Phase 1 du gabarit demande data-model.md ou contracts/, constate qu'ils existent et référence-les ; n'en crée pas d'autre version.
+
+À produire : plan.md (Technical Context, Constitution Check, structure, phases) et research.md (arbitrages de T-002 résumés et liés aux ADR-010..015, sans les dupliquer), quickstart.md (comment rejouer la validation du schéma et comment T-005 l'utilise). Ne pas lancer /speckit-tasks.
+
+Direction technique confirmée (ADR « Proposé », C-07) :
+- MySQL 8 (ADR-002) ≥ 8.0.16 pour les CHECK ; InnoDB ; utf8mb4_0900_ai_ci ; Laravel 11 (ADR-001) ; migrations écrites par T-005, pas ici.
+- Conventions ADR-010 (anglais snake_case, pluriel, id BIGINT UNSIGNED), ADR-011 (DECIMAL(10,2) MAD), ADR-012 (VARCHAR + CHECK pour les énumérations), ADR-013 (invariants statiques en base, règles dynamiques et transitions dans les services uniques T-027/T-036/T-043, aucun déclencheur), ADR-014 (chiffrement applicatif bank_details et refund_details, clé = variable d'environnement APP_KEY), ADR-015 (audit_entries : utilisateur applicatif SELECT, INSERT seulement ; variables DB_USERNAME et DB_MIGRATION_USERNAME).
+- Index pour ENF-004 (catalogue visible, FULLTEXT recherche) et pour les traitements planifiés (T-034 échéance vendeur, T-053 retenue, T-050 alerte 12 j, T-054 reversement).
+- Validation réelle déjà faite (voir data-model.md §9) : DDL 31 instructions sans erreur ; couverture 24/24 classes, 10/10 énumérations, contraintes prix > 0, stock >= 0, note 1..5 présentes ; 23/23 violations refusées ; UPDATE/DELETE sur audit refusés.
+- Points ouverts à garder en [NEEDS CLARIFICATION] : e-mail client (F001, M-06), informations vendeur (Q22), durée de conservation (§19). HYPOTHÈSE H-T02-1 : exclusion du retour figée sur la ligne de commande.
+- Aucun secret : seulement des noms de variables d'environnement.

@@ -1,0 +1,20 @@
+No extension hooks were configured for this project (`.specify/extensions.yml` doesn't exist), so the hook steps were skipped both before and after specification.
+
+## Résumé
+
+**SPECIFY_FEATURE_DIRECTORY** : `specs/002-schema-donnees`
+**SPEC_FILE** : `specs/002-schema-donnees/spec.md`
+
+J'ai lu l'intégralité du cahier des charges v1.1, le code source des diagrammes de classes (`gen_class.py`) et des machines à états (`gen_state.py`), le plan de Compass (constats M-01..M-09, H-01..H-11, U-01/U-02, tâche T-002), le `data-model.md` du socle T-001, et les ADR déjà proposés pour cette tâche (ADR-008, ADR-010 à ADR-015) avant de rédiger.
+
+La spécification couvre :
+- **6 user stories** priorisées (P1 à P3) : couverture des 24 classes CLASS-01/02, énumérations fermées contrôlées par la base, invariants statiques garantis par la base, argent exact/traçable/cloisonné, index pour les règles dynamiques, écarts UML tous identifiés.
+- **30 exigences fonctionnelles** (FR-001 à FR-030), regroupées par thème, avec exactement **3 `[NEEDS CLARIFICATION]`** (e-mail client, informations vendeur Q22, durée de conservation §19) et les 6 autres valeurs ouvertes (Q19, Q27, Q40, Q42, Q44, Q45) traitées comme paramètres (H-08), pas comme colonnes figées.
+- Une section dédiée **« Écarts avec l'UML approuvé »** listant 7 écarts un par un, chacun justifié et attribué à Blueprint ou à @user.
+- **Key Entities** couvrant les 24 classes + le journal d'audit (absent de l'UML mais exigé par ENF-008).
+- **8 critères de succès mesurables** correspondant directement aux critères demandés (100 % des classes/énumérations couvertes, 100 % des violations refusées sur base vide, aucun écart non listé).
+
+**Validation qualité** : le checklist `checklists/requirements.md` a été généré et tous les items passent (3 `[NEEDS CLARIFICATION]` restants sont volontaires, dans la limite autorisée, et documentés comme tels avec des valeurs par défaut raisonnables).
+
+Prêt pour `/speckit-plan` (ou `/speckit-clarify` si vous souhaitez trancher les 3 points ouverts avant).
+EXIT=0

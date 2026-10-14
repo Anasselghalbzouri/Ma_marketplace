@@ -1,0 +1,21 @@
+SPECIFY_FEATURE_DIRECTORY=specs/002-schema-donnees (utiliser ce dossier tel quel, il existe déjà avec le gabarit ; ne pas créer d'autre dossier).
+
+Fonctionnalité : T-002 — Schéma de données physique (persistance) de la marketplace de produits locaux marocains.
+Langue : français. Tâche d'architecture : spécifier le QUOI et le POURQUOI du schéma de données, pas son code.
+
+Sources (à citer, ne pas réécrire) :
+- Cahier des charges validé : /opt/data/cahiers/marketplace-produits-locaux-maroc/cahier-des-charges-v1.1.md (§5, §7, §10 F001–F022, §11 RG-001..RG-030, §15 CA-*)
+- Diagrammes de classes validés : /opt/data/uml/marketplace-produits-locaux-maroc/02-classes/CLASS-01-comptes-catalogue-commandes.drawio et CLASS-02-retours-argent.drawio (sources lisibles : /opt/data/uml/marketplace-produits-locaux-maroc/_sources/gen_class.py)
+- Machines à états : /opt/data/uml/marketplace-produits-locaux-maroc/05-etats/STATE-001..004
+- Plan de Compass, tâche T-002 : /opt/data/uml/marketplace-produits-locaux-maroc/plan/plan-marketplace-produits-locaux-maroc.md
+- Socle T-001 : specs/001-architecture-socle/ (spec.md, data-model.md), docs/architecture/ (ARCHITECTURE.md, DECISIONS.md ADR-001..009, SECURITY.md), constitution .specify/memory/constitution.md
+
+Besoin :
+1. Chaque classe de CLASS-01 (Client ENT-001, Vendeur ENT-002, Boutique ENT-003, Produit ENT-004, Catégorie ENT-005, CommuneVendeur ENT-006a, VilleDesservie ENT-006b, Panier ENT-007, LignePanier ENT-007b, Commande ENT-008, SousCommande ENT-009, LigneCommande ENT-010, Avis ENT-020) et de CLASS-02 (Retour ENT-011, Vérification ENT-012, Litige ENT-013, Remboursement ENT-014, FraisDeRetour ENT-015, MontantVendeur ENT-016, Déduction ENT-017, Reversement ENT-018, RemiseDeFonds ENT-019, Écart ENT-019b, SociétéDeLivraison ENT-021) a une structure persistée.
+2. Chaque énumération (StatutCommande, StatutSousCommande, ModeReversement, StatutRetour, MotifRetour, StatutMontant, MoyenRemboursement, ImputationFrais, RésultatVérification) a un type contrôlé par la base : aucune valeur hors liste n'est acceptée.
+3. Les invariants du cahier sont garantis par la base quand ils sont statiques : prix > 0 (F003), stock ≥ 0 (CLASS-01), note 1..5 (F012), un avis par produit et par commande (RG-011), une sous-commande par vendeur et par commande (RG-003), coordonnées bancaires obligatoires si virement (CA-F002-2), pas de remboursement en espèces non traçable (RG-022), montant encaissé et date de réception présents pour « livrée et payée » (CA-F010-1), motif pour un échec (CA-F010-3) ou un refus.
+4. Les règles dynamiques restent dans les services (RG-006 visibilité, RG-019 délai de 7 jours, RG-024 retenue, quantité ≤ stock) et le schéma fournit les index qui les rendent rapides (catalogue, échéances des traitements planifiés, calcul hebdomadaire).
+5. L'argent est exact (pas d'arrondi flottant), traçable (journal d'audit en ajout seul, ADR-008, ENF-008) et cloisonné (coordonnées bancaires et de remboursement visibles du seul administrateur et du titulaire, FR-055).
+6. Les écarts entre le schéma et l'UML sont listés un par un, avec leur justification et leur destinataire (Blueprint pour un manque UML, @user pour un manque métier).
+7. Points ouverts à garder en [NEEDS CLARIFICATION] (max 3) : e-mail client obligatoire ou non (F001, M-06) ; informations vendeur exigées (Q22) ; durée de conservation des données (§19). Les valeurs Q19, Q27, Q40, Q42, Q44, Q45 sont des paramètres (H-08), pas des colonnes figées.
+Critères de succès mesurables : 100 % des classes et énumérations couvertes ; 100 % des violations de prix/stock/note refusées par la base lors d'un essai sur base vide ; aucun écart UML non listé.
