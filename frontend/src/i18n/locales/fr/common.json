@@ -1,0 +1,31 @@
+{
+  "app": {
+    "name": "March\u00e9 local Maroc",
+    "tagline": "Produits locaux, paiement \u00e0 la livraison"
+  },
+  "header": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "login": "Se connecter",
+    "logout": "Se d\u00e9connecter",
+    "register": "Cr\u00e9er un compte",
+    "myOrders": "Mes commandes",
+    "cart": "Panier",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "languageSwitcher": "Langue de l\u2019interface",
+    "dashboard": "Tableau de bord"
+  },
+  "states": {
+    "loading": "Chargement\u2026",
+    "retry": "R\u00e9essayer",
+    "empty": "Aucune donn\u00e9e \u00e0 afficher pour l\u2019instant.",
+    "errorGeneric": "Une erreur est survenue. Veuillez r\u00e9essayer.",
+    "errorUnavailable": "Le service est momentan\u00e9ment indisponible.",
+    "sessionExpired": "Votre session a expir\u00e9. Veuillez vous reconnecter."
+  },
+  "languages": {
+    "fr": "Fran\u00e7ais",
+    "ar": "Arabe (\u0639\u0631\u0628\u064a)"
+  }
+}
