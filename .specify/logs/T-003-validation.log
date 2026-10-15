@@ -1,0 +1,54 @@
+[OK] C1 OpenAPI 3.1 valide (openapi-spec-validator) — openapi=3.1.0
+     101 opérations, 85 chemins, 93 schémas
+[OK] C2 UC-001..UC-023 ont chacun ≥ 1 point d'accès — 23/23
+     UC-001: 2 op. (listProducts, listCategories)
+     UC-002: 2 op. (getProduct, listProductReviews)
+     UC-003: 4 op. (getCart, addCartItem, updateCartItem, removeCartItem)
+     UC-004: 4 op. (registerCustomer, login, logout, getMe)
+     UC-005: 4 op. (listServedCities, previewOrder, createOrder, getOrderConfirmation)
+     UC-006: 4 op. (listMyOrders, getMyOrder, listNotifications, markNotificationRead)
+     UC-007: 1 op. (cancelMyOrder)
+     UC-008: 5 op. (uploadPhoto, getReturnEligibility, createReturn, listMyReturns…)
+     UC-009: 2 op. (getMyOrder, upsertReview)
+     UC-010: 7 op. (login, getMe, registerSeller, listSellerCommunes…)
+     UC-011: 7 op. (updateShop, uploadPhoto, listSellerProducts, createSellerProduct…)
+     UC-012: 5 op. (listSellerSubOrders, getSellerSubOrder, acceptSubOrder, refuseSubOrder…)
+     UC-013: 3 op. (sellerListReturns, sellerGetReturn, sellerInspectReturn)
+     UC-014: 4 op. (sellerGetAmountsSummary, sellerListAmounts, sellerListDeductions, sellerListPayouts)
+     UC-015: 3 op. (adminListOrders, adminGetOrder, adminHandoverOrder)
+     UC-016: 7 op. (adminGetOrder, adminMarkSubOrderCollected, adminMarkOutForDelivery, adminMarkDeliveredPaid…)
+     UC-017: 5 op. (adminListDeliveryPartners, adminCreateDeliveryPartner, adminCreateFundRemittance, adminListFundRemittances…)
+     UC-018: 2 op. (adminGetReturn, adminDecideDispute)
+     UC-019: 3 op. (adminListReturns, adminGetReturn, adminRecordRefund)
+     UC-020: 3 op. (adminPreviewPayouts, adminCreatePayout, adminListPayouts)
+     UC-021: 12 op. (adminListCategories, adminCreateCategory, adminUpdateCategory, adminDeleteCategory…)
+     UC-022: 8 op. (adminHideProduct, adminUnhideProduct, adminSuspendSeller, adminReactivateSeller…)
+     UC-023: 17 op. (adminListOrders, adminGetOrder, adminCancelOrder, adminAcceptSubOrder…)
+[OK] C3a lignes de la matrice §5 couvertes — 17/17 lignes MP
+[OK] C3b capacités dérivées MX couvertes — 5 lignes MX
+[OK] C3c chaque rôle autorisé d'une ligne est servi
+[OK] C4 aucune opération n'ouvre un rôle refusé
+[OK] C5a exemple de requête pour chaque opération
+[OK] C5b exemple de succès (2xx) pour chaque opération
+[OK] C5c exemple d'erreur (4xx/5xx) pour chaque opération
+[OK] C6 exemples conformes aux schémas — 468 exemples vérifiés
+[OK] C7 codes d'erreur au catalogue avec le bon statut HTTP
+     identique : ['action_type'] = ['cash_collected', 'cash_discrepancy_recorded', 'correction', 'deduction_recorded', 'delivery_status_recorded', 'dispute_decided', 'fund_remittance_recorded', 'order_status_changed', 'payout_recorded', 'refund_recorded', 'return_fee_charged', 'return_pickup_recorded', 'return_status_changed', 'scheduled_task_run', 'seller_amount_deducted', 'seller_amount_held', 'seller_amount_released', 'sub_order_status_changed']
+     identique : ['charged_to'] = ['customer', 'seller']
+     non exposé : ['check_status'] ['accepted', 'rejected'] — photo_files.check_status : un fichier refusé n'est jamais renvoyé, il produit 422 file_rejected (FR-040)
+     identique : ['method', 'payout_method'] = ['bank_transfer', 'cash']
+     identique : ['method', 'refund_method'] = ['bank_transfer', 'other_traceable']
+     identique : ['origin'] = ['refund', 'return_fee']
+     identique : ['payment_method'] = ['cash_on_delivery']
+     identique : ['reason'] = ['change_of_mind', 'defective', 'incorrect', 'not_as_described']
+     identique : ['result'] = ['compliant', 'disputed']
+     identique : ['role'] = ['admin', 'customer', 'seller']
+     identique : ['status'] = ['active', 'suspended']
+     identique : ['status'] = ['awaiting_acceptance', 'cancelled', 'confirmed', 'delivered_paid', 'delivery_failed', 'in_collection', 'out_for_delivery']
+     identique : ['status'] = ['accepted', 'cancelled', 'collected', 'new', 'ready_for_pickup', 'refused']
+     identique : ['status'] = ['available', 'deducted', 'held', 'paid_out']
+     identique : ['status'] = ['customer_refunded', 'disputed', 'in_dispute', 'picked_up', 'pickup_in_progress', 'requested', 'return_refused', 'verified_by_seller']
+     non exposé : ['variant'] ['mobile', 'original'] — photo_files.variant : variantes internes, l'API expose des URL
+[OK] C8 énumérations T-002 (CHECK IN) identiques dans l'API
+
+RÉSULTAT : SUCCÈS — 0 contrôle(s) en échec

@@ -1,0 +1,21 @@
+SPECIFY_FEATURE_DIRECTORY=specs/003-contrat-api (utiliser ce dossier tel quel, il existe déjà avec le gabarit spec.md ; ne pas créer d'autre dossier ni de branche).
+
+Fonctionnalité : T-003 — Contrat d'API et matrice d'autorisations (rôle × action) de la marketplace de produits locaux marocains.
+Langue : français. Tâche d'architecture : spécifier le QUOI et le POURQUOI du contrat d'API, pas son code.
+
+Sources (à citer, ne pas réécrire) :
+- Cahier des charges validé : /opt/data/cahiers/marketplace-produits-locaux-maroc/cahier-des-charges-v1.1.md (§5 acteurs et matrice des permissions, §10 F001–F022, §11 RG-001..RG-030, §15 CA-*, ENF-007, ENF-008)
+- Cas d'utilisation et séquences approuvés : /opt/data/uml/marketplace-produits-locaux-maroc/ (UC-DIAG-01..03 = UC-001..UC-023 ; SEQ-001 commande, SEQ-002 livraison/encaissement, SEQ-003 retour ; STATE-001..004) et rapport-tracabilite-validation.md (écarts U-01, U-02)
+- Plan de Compass, tâche T-003 : /opt/data/uml/marketplace-produits-locaux-maroc/plan/plan-marketplace-produits-locaux-maroc.md
+- Socle T-001 : specs/001-architecture-socle/contracts/ (format-erreur.md, statuts-http.md, pagination.md, authentification.md, versionnage.md), docs/architecture/DECISIONS.md, constitution .specify/memory/constitution.md (principes III, IV, V, IX)
+- Schéma T-002 : specs/002-schema-donnees/data-model.md et contracts/schema-reference.mysql.sql
+
+Besoin :
+1. Chaque cas d'utilisation UC-001..UC-023 dispose d'au moins un point d'accès d'API, rattaché à un module M01–M11 (ou au socle).
+2. Chaque ligne de la matrice des permissions du cahier §5 (17 lignes) est appliquée par l'API, pour chacun des quatre rôles (visiteur, client, vendeur, administrateur) ; la société de livraison n'a aucun accès (D38). Les capacités nécessaires mais absentes de §5 (inscription/connexion, référentiels publics, notifications internes, supervision, paramètres) sont listées à part et justifiées.
+3. Un vendeur n'accède qu'à ses ressources ; une tentative sur la ressource d'un autre titulaire ne révèle pas son existence.
+4. Chaque point d'accès a un exemple de requête et des exemples de réponse en succès et en erreur, avec leur code HTTP ; les erreurs viennent d'un catalogue fermé de codes stables.
+5. Les montants sont exacts (pas de flottant), les énumérations exposées sont identiques à celles du schéma T-002, les transitions d'état suivent STATE-001..004 et une transition interdite est refusée explicitement.
+6. Les actions que l'UML ne modélise pas encore (U-01 décision admin à défaut de vérification, U-02 annulation admin) sont réservées dans le contrat mais signalées bloquées.
+7. Points ouverts à garder en [NEEDS CLARIFICATION] (max 3) : panier visiteur (§5 HYPOTHÈSE H-01) ; périmètre de la supervision administrateur (F013, UC-023) ; levée d'une modération (réafficher produit/avis, réactiver vendeur), non décrite par le cahier.
+Critères de succès mesurables : 23/23 UC couverts ; 17/17 lignes de la matrice couvertes pour chaque rôle autorisé ; 0 opération qui ouvre un rôle refusé ; 100 % des opérations avec exemples requête/succès/erreur valides contre le schéma ; validation par @user au point de contrôle CP-1.
