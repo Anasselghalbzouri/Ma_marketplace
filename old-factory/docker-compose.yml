@@ -1,0 +1,103 @@
+services:
+  app:
+    build:
+      context: ./backend
+      dockerfile: ../ops/docker/app.Dockerfile
+    container_name: mplm-app
+    working_dir: /var/www/html
+    volumes:
+      - ./backend:/var/www/html
+      - mplm-vendor:/var/www/html/vendor
+    networks:
+      - mplm-network
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: mplm
+      DB_USERNAME: mplm
+      DB_PASSWORD: mplm
+      CACHE_STORE: redis
+      QUEUE_CONNECTION: redis
+      SESSION_DRIVER: redis
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  web:
+    image: nginx:alpine
+    container_name: mplm-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./backend:/var/www/html:ro
+      - ./ops/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - mplm-network
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: mplm-db
+    environment:
+      MYSQL_DATABASE: mplm
+      MYSQL_USER: mplm
+      MYSQL_PASSWORD: mplm
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mplm-db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - mplm-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: mplm-redis
+    networks:
+      - mplm-network
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: ../ops/docker/app.Dockerfile
+    container_name: mplm-worker
+    working_dir: /var/www/html
+    command: ["php", "artisan", "queue:work", "redis", "--sleep=3", "--tries=3"]
+    volumes:
+      - ./backend:/var/www/html
+      - mplm-vendor:/var/www/html/vendor
+    networks:
+      - mplm-network
+    environment:
+      APP_ENV: local
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_DATABASE: mplm
+      DB_USERNAME: mplm
+      DB_PASSWORD: mplm
+      QUEUE_CONNECTION: redis
+      REDIS_HOST: redis
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  mplm-db-data:
+  mplm-vendor:
+
+networks:
+  mplm-network:
+    driver: bridge

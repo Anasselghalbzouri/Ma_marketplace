@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Wrapper local PHP + Composer pour T-004
+# Usage: source tooling/php/run  (ajoute php et composer au PATH de la session)
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+export PATH="$SCRIPT_DIR:$PATH"
+
+# Alias pratiques pour cette session
+php() { "$SCRIPT_DIR/php" "$@"; }
+composer() { "$SCRIPT_DIR/php" "$SCRIPT_DIR/composer" "$@"; }
+artisan() { (cd "$PROJECT_ROOT/backend" && "$SCRIPT_DIR/php" "$PROJECT_ROOT/backend/artisan" "$@"); }
+
+export -f php composer artisan 2>/dev/null || true
+
+echo "[t-004] PHP/Composer locaux activés pour cette session."
+echo "  php --version  => $(php --version | head -1)"
+echo "  composer --version => $(composer --version | head -1)"
