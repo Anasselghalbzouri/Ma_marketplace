@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+/* T-012 — socle mobile-first.
+   - Écran cible : 360 px de large minimum (ENF-002).
+   - Ruptures : 360 (mini mobile), 480 (mobile), 768 (tablette), 1024 (desktop).
+   - Couleurs : palette neutre haut contraste, accents discrets. La personnalisation
+     par feature (M03 catalogue, etc.) appartient aux tâches filles, pas au socle.
+*/
+
+@theme {
+  --color-brand-50: #f0f9f4;
+  --color-brand-100: #dcf2e3;
+  --color-brand-500: #16a34a;
+  --color-brand-700: #15803d;
+  --color-ink-900: #0f172a;
+  --color-ink-700: #334155;
+  --color-ink-500: #64748b;
+  --color-ink-300: #cbd5e1;
+  --color-ink-100: #f1f5f9;
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-danger: #b91c1c;
+  --color-warning: #b45309;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  --header-height: 3.5rem; /* 56 px, navigation mobile */
+  --max-content-width: 48rem; /* 768 px — tablette portrait */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html[dir='rtl'] {
+  /* Inverser les paddings/marges utilitaires Tailwind (logique Tailwind v4). */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px; /* lisible mobile ; ne descend jamais en dessous */
+  line-height: 1.5;
+  color: var(--color-ink-900);
+  background: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Liens et boutons accessibles au toucher sur 360 px. */
+a,
+button {
+  min-height: 44px; /* recommandation WCAG 2.5.5 (cible tactile) */
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Conteneur principal : padding latéral sûr pour 360 px. */
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  padding: 1rem;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Skeleton léger pour états de chargement (cf. composants LoadingState). */
+@keyframes mplm-skel {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.mplm-skel {
+  background: linear-gradient(
+    90deg,
+    var(--color-ink-100) 0%,
+    var(--color-ink-300) 50%,
+    var(--color-ink-100) 100%
+  );
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  animation: mplm-skel 1.4s ease-in-out infinite;
+  border-radius: 0.375rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mplm-skel { animation: none; }
+}
